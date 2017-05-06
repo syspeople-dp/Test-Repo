@@ -8,7 +8,7 @@
 .EXAMPLE
     Another example of how to use this cmdlet
 #>
-function verb-noun {
+function Get-Root {
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipeline=$True)]
