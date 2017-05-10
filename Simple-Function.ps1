@@ -31,13 +31,15 @@ trap {
 
 <#
 .SYNOPSIS
-    Short description
-.DESCRIPTION
-    Long description
+    For writing out logs including timestampe
 .EXAMPLE
-    Example of how to use this cmdlet
+    Write-OutTimeStamped "Script started"
+
+        [00:00:84] Script started
 .EXAMPLE
-    Another example of how to use this cmdlet
+    "Script started" | Write-OutTimeStamped
+
+        [00:00:84] Script started
 #>
 function Write-OutTimeStamped {
     [CmdletBinding()]
@@ -49,13 +51,13 @@ function Write-OutTimeStamped {
     begin {
     }
     
-    process {
+   process {
         if (Get-Variable -Name stopWatch  -ErrorAction SilentlyContinue) {
 "`n[$('{0:D2}' -f $stopWatch.Elapsed.Minutes):$('{0:D2}' -f $stopWatch.Elapsed.Seconds):$('{0:D2}' -f $stopWatch.Elapsed.Milliseconds)] $Output"
     }
     }
     
-    end {
+   end {
     }
 }
 
@@ -81,20 +83,19 @@ $('#' * 80)
 $('#' * 80)
 "@
 
-Write-OutTimeStamped "Script started"
+ Write-OutTimeStamped "Script started"
 #endregion Init
 
 #region Main
 
-for ($i = 0; $i -lt 1000; $i++) {
-    Write-OutTimeStamped "Hej"
-}
+#<INSERT CODE HERE>
 
 #endregion Main
 
 #region Finalize
 
-Write-OutTimeStamped "Script ran through"
+ Write-OutTimeStamped "Script ran through"
+"`n$('#' * 80)`n"
 $stopWatch.Stop()
 
 #endregion Finalize
